@@ -1,0 +1,212 @@
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 15px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: ghostwhite; 
+    border-radius: 15px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: lightgray; 
+  }
+
+body{
+    background-image: url("filmReelImg.jpg");
+    color: aliceblue;
+}
+
+.show-container{
+    visibility: visible;
+}
+
+.section-center, .intro{
+    align-items: center;
+    /* background-color: aliceblue; */
+    padding: 20px;
+    text-align: center;
+}
+
+.grocery-form{
+    /* background-color: aqua; */
+}
+
+.form-control{
+    /* background-color: beige; */
+}
+
+.grocery-container{
+    /* border: 2 px black solid;
+    background-color: lightpink; */
+}
+
+.grocery-list{
+    /* border: 2 px black solid;
+    background-color: lightblue; */
+}
+
+div {
+    padding: 20px 20px 20px 20px;
+  }
+
+  div {
+ 
+    border: 1px solid whitesmoke;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    overflow: auto;
+    border-radius: 25px;
+  }
+
+  h1 {
+    align-content: center;
+    text-align: center;
+    color: aliceblue;
+    font-size: 30px;
+  }
+
+  .submit-btn, .clear-btn, .cc-btn, .lc-btn, .mainIndex-btn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 25px;
+  }
+
+  
+.submit-btn, .clear-btn, .cc-btn, .lc-btn, .mainIndex-btn {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  
+  .submit-btn:hover, .clear-btn:hover, .cc-btn:hover, .lc-btn:hover, .mainIndex-btn:hover  {
+    background-color: #555555;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+  .submit-btn:active, .clear-btn:active, .cc-btn:active, .lc-btn:active, .mainIndex-btn:active {
+    background-color: lightgray;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .btn-container{
+    background-color: black;
+  }
+
+  .title{
+    background-color: grey;
+    border-top-left-radius: 15 px;
+    border-top-right-radius: 15 px;
+    border-bottom-left-radius: 0 px;
+    border-bottom-right-radius: 0 px;
+    overflow: auto;
+  }
+
+  .review{
+    background-color: grey;
+    border-top-left-radius: 15 px;
+    border-top-right-radius: 15 px;
+    border-bottom-left-radius: 0 px;
+    border-bottom-right-radius: 0 px;
+    overflow: auto;
+  }
+
+
+  .edit-btn, .delete-btn {
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 25px;
+  }
+
+  .edit-btn, .delete-btn {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  
+  .edit-btn:hover, .delete-btn:hover {
+    background-color: #555555;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+  .edit-btn:active, .delete-btn:active {
+    background-color: lightgray;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  p title, p review{
+    border: 1px solid whitesmoke;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  textarea, input{
+    border-radius: 10px;
+    overflow: auto;
+  }
+
+  .alert{
+    text-align: center;
+    padding: 0%;
+  }
+
+  .alert-success{
+    background-color: #167619;
+    color: rgb(235, 231, 231);
+  }
+
+  .alert-danger{
+    background: rgb(119, 18, 18);
+    color: rgb(235, 231, 231);
+  }
+
+  .grocery-list{
+    border: 0px solid whitesmoke;
+    padding: 1px;
+    margin: 1px;
+  }
+
+  section.fadeOut {
+    opacity: 0;
+    pointer-events: none;
+}
+
+section.fadeIn {
+    opacity: 1;
+    pointer-events: all;
+}
+

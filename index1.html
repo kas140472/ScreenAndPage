@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CinematicChronicle</title>
+    <!--styles-->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <section class="section-center">
+        <!-- FORM -->
+        <form class="grocery-form">
+            
+            <h1>Cinematic Chronicle </h1>
+            <div class="form-control">
+                <p>Title</p> <input type="text" id="grocery" placeholder="e.g. Feel Good"> <br><br>
+                <p>Review</p> <textarea rows="10" cols="30" id="grocery-review" placeholder="e.g. Feel Good is an amazing show! 9/10" size="50" style="height:100px;width:90%;"></textarea><br><br>
+                <p class="alert"></p>
+                <button type="submit" class="submit-btn">Add movie/show to catalog</button>
+            </div>
+        </form>
+        <!-- list -->
+        <br><h2>Catalog</h2>
+        <div class="grocery-container">
+            <div class="grocery-list">
+                
+            </div>
+            <!-- button-->
+            <button type="button" class="clear-btn">Remove all movies/shows</button>
+        </div>
+
+        <button type="button" class="mainIndex-btn" onclick="location.href='./index.html';">Go to Main</button>
+
+    </section>
+
+    <!-- javascript -->
+    <script src="app.js"></script>
+</body>
+</html>
