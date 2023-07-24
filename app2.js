@@ -4,6 +4,9 @@ const alert = document.querySelector('.alert');
 const form = document.querySelector('.grocery-form');
 const grocery = document.getElementById('grocery');
 const groceryReview = document.getElementById('grocery-review');
+
+const groceryGenre = document.getElementById('genreList');
+
 const submitBtn = document.querySelector('.submit-btn');
 const container = document.querySelector('.grocery-container');
 const list = document.querySelector('.grocery-list');
@@ -18,6 +21,8 @@ let editElement;
 let editFlag = false;
 let editElementReview;
 let editFlagReview = false;
+let editElementGenre;
+let editFlagGenre = false;
 let editID = '';
 
 // *********** EVENT LISTENERS *******************
@@ -56,15 +61,20 @@ function  addItem(e){
     e.preventDefault();
     const value = grocery.value;
     const valueReview = groceryReview.value;
+
+    var genreList = document.getElementById("genreList");  
+    
+    const valueGenre = genreList.options[genreList.selectedIndex].text;  
+
     const id = new Date().getTime().toString(); // just to get a unique id
     if(value !== '' && editFlag === false){
         if(valueReview !== ''){
-            displayListItem(id, value, valueReview);
-            addToLocalStorage(id, value, valueReview);
+            displayListItem(id, value, valueReview, valueGenre);
+            addToLocalStorage(id, value, valueReview, valueGenre);
         }
         else{
-            displayListItem(id, value, 'No review.');
-            addToLocalStorage(id, value, 'No review.');
+            displayListItem(id, value, 'No review.', valueGenre);
+            addToLocalStorage(id, value, 'No review.', valueGenre);
         }
         
         // display alert
@@ -79,6 +89,7 @@ function  addItem(e){
     else if(value && editFlag){
         editElement.innerHTML = value;
         editElementReview.innerHTML = valueReview;
+        editElementGenre.innerHTML = valueGenre;
         // if(valueReview !== ''){
         //     editElementReview.innerHTML = valueReview;
         // }
@@ -88,7 +99,7 @@ function  addItem(e){
         
         displayAlert('Your literary catalog has been updated!', 'success');
         // edit local storage
-        editLocalStorage(editID, value, valueReview);
+        editLocalStorage(editID, value, valueReview, valueGenre);
         //editLocalStorage(editID, value);
 
         setBackToDefault();
@@ -130,9 +141,12 @@ function editItem(e){
     // set edit item
     editElement = e.currentTarget.parentElement.firstElementChild;
     editElementReview = e.currentTarget.previousElementSibling;
+    editElementGenre = e.currentTarget.previousElementSibling.previousElementSibling;
     // set form value
     grocery.value = editElement.innerHTML;
     groceryReview.value = editElementReview.innerHTML;
+
+    groceryGenre.value = editElementGenre.innerHTML;
     
     editFlag = true;
     editID = element.dataset.id;
@@ -169,14 +183,16 @@ function setBackToDefault(){
     grocery.value = '';
     editFlag = false;
     editFlagReview = false;
+    editFlagGenre = false;
     editID = '';
     submitBtn.textContent = 'Add book to catalog';
     groceryReview.value = '';
+    groceryGenre.value = 'None';
 }
 
 // ************ LOCAL STORAGE *****************
-function addToLocalStorage(id, value, valueReview){
-    const grocery = {id:id, value:value, valueReview:valueReview};
+function addToLocalStorage(id, value, valueReview, valueGenre){
+    const grocery = {id:id, value:value, valueReview:valueReview, valueGenre:valueGenre};
     let items = getItemsFromLocalStorage();
     items.push(grocery);
     localStorage.setItem('list2', JSON.stringify(items));
@@ -192,12 +208,13 @@ function removeFromLocalStorage(id){
     localStorage.setItem('list2', JSON.stringify(items));
 }
 
-function editLocalStorage(id, value, valueReview){
+function editLocalStorage(id, value, valueReview, valueGenre){
     let items = getItemsFromLocalStorage();
     items = items.map(function(item){
         if(item.id === id){
             item.value = value;
             item.valueReview = valueReview;
+            item.valueGenre = valueGenre;
             return item;
         }
         else{
@@ -225,14 +242,14 @@ function setupItems(){
     let items = getItemsFromLocalStorage();
     if(items.length > 0){
         items.forEach(function(item){
-            displayListItem(item.id, item.value, item.valueReview);
+            displayListItem(item.id, item.value, item.valueReview, item.valueGenre);
         })
         container.classList.add('show-container');
     }
 }
 
 
-function displayListItem(id, value, valueReview){
+function displayListItem(id, value, valueReview, valueGenre){
     const element = document.createElement('article');
     // add class
     element.classList.add('grocery-item');
@@ -242,6 +259,7 @@ function displayListItem(id, value, valueReview){
     element.setAttributeNode(attr);
     element.innerHTML = `<div class="btn-container">
             <p class="title">${value}</p>
+            Genre: <p class="genre" id="genreID">${valueGenre}</p>
             <p class="review">${valueReview}</p>
             <button type="button" class="edit-btn">
                 <i class="fas fa-edit"></i>
